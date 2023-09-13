@@ -21,20 +21,47 @@
             color: yellow; 
         }
 
+        .bold {
+            color: darkviolet;
+        }
+
+        #special {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* the element needs to have both classes: */
+        .bold.highlight {
+            background-color: darkkhaki;
+        }
+
+        /* select elements with a class highlight if they are inside an element with the class bold  */
+        .bold .highlight {
+            background-color: darkkhaki;
+        }
+
+        /* targets both classes */
+        .bold, .highlight {
+            font-weight: bolder;
+        }
+
+         #special {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+
 
     </style>
 </head>
 <body>
 
-    <p>This is a red paragraph</p>
+    <p class="bold highlight">This is a red paragraph</p>
 
     <div>
 
-        <p>This is a green paragraph</p>
+        <p id="special" class="highlight">This is a green paragraph</p>
 
         <div>
 
-            <p>This is a nested paragraph</p>
+            <p class="bold">This is a nested paragraph</p>
 
         </div>
 
