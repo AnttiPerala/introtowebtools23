@@ -2,6 +2,9 @@
 const playerHand = document.getElementById('playerHand'); // player's hand element
 const computerHand = document.getElementById('computerHand'); // computer's hand element
 const resultInfo = document.getElementById('result'); // result display element
+const scorePlaceholder = document.getElementById('scorePlaceholder');
+let computerScore = 0;
+let playerScore = 0;
 
 // Define the game function, which takes the player's choice as an argument
 function game(playerChoice) {
@@ -49,15 +52,21 @@ function game(playerChoice) {
             (playerChoice == 'paper' && selectedComputerHand == 'rock')
         ) {
             resultInfo.textContent = 'You win!';
+            playerScore++;
         }
         // If neither of the above conditions are met, the computer wins
         else {
             resultInfo.textContent = 'Computer wins!';
+            computerScore++;
         }
 
         // Remove the 'shakeIt' class from both hands, stopping the shaking animation
         playerHand.classList.remove('shakeIt');
         computerHand.classList.remove('shakeIt');
 
+        scorePlaceholder.textContent = 'Player ' + playerScore + ' - ' + computerScore + ' Computer';
+
+
     })
+
 }
