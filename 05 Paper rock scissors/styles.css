@@ -1,7 +1,45 @@
 body {
     background-color: crimson;
+    text-align: center;
+    padding: 50px;
 }
 
 img {
     width: 200px;
+}
+
+.shakeIt {
+    animation: shake 2s;
+}
+
+@keyframes shake {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    15% {
+        transform: translateY(-20px);
+    }
+
+    30% {
+        transform: translateY(0px);
+    }
+
+    45% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(0px);
+    }
+
+    75% {
+        transform: translateY(-20px);
+    }
+    
+    100% {
+            transform: translateY(0px);
+        }
+
 }
