@@ -10,12 +10,16 @@ function game(playerChoice){
 
     playerHand.classList.add('shakeIt');
     computerHand.classList.add('shakeIt');
+    playerHand.src = 'rock.png';
+    computerHand.src = 'rock.png';
     const computerChoiceArray = ['rock', 'paper', 'scissors'];
     const selectedComputerHand = computerChoiceArray[flooredResult];
     
     computerHand.addEventListener('animationend', function reveal(){
+
+        computerHand.removeEventListener('animationend', reveal)
         
-        playerHand.src = playerChoice + '.png';
+            playerHand.src = playerChoice + '.png';
             computerHand.src = selectedComputerHand + '.png';
 
             if (playerChoice == selectedComputerHand){
@@ -29,6 +33,9 @@ function game(playerChoice){
             } else {
                 resultInfo.textContent = 'Computer wins!'; 
             }
+
+            playerHand.classList.remove('shakeIt');
+            computerHand.classList.remove('shakeIt');
 
     })
 
