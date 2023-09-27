@@ -5,7 +5,9 @@
     "description": "A simple auto-fill extension",
     "permissions": [
         "activeTab",
-        "scripting"
+        "scripting",
+        "contextMenus",
+        "storage"
     ],
     "action": {
         "default_popup": "popup.html",
