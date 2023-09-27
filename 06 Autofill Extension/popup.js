@@ -1,23 +1,29 @@
-// Store user info in chrome.storage.local when the extension is installed
-chrome.runtime.onInstalled.addListener(() => {
-    var userInfo = {
-        firstName: 'John',
-        lastName: 'Doe',
-        address: '123 Main St',
-        phone: '123-456-7890',
-        email: 'john.doe@example.com'
-    };
+// Store user info in chrome.storage.local and create context menu items
+var userInfo = {
+    firstName: 'John',
+    lastName: 'Doe',
+    address: '123 Main St',
+    phone: '123-456-7890',
+    email: 'john.doe@example.com'
+};
 
-    chrome.storage.local.set({ userInfo: userInfo }, () => {
-        console.log('User info stored');
-    });
+chrome.storage.local.set({ userInfo: userInfo }, () => {
+    console.log('User info stored');
+});
 
-    // Create context menu items for each user info key
+// Remove all existing context menu items and create new ones
+chrome.contextMenus.removeAll(() => {
     for (const key of Object.keys(userInfo)) {
         chrome.contextMenus.create({
             id: key,
             title: `Fill with ${key}`,
             contexts: ['editable'],
+        }, () => {
+            if (chrome.runtime.lastError) {
+                console.error(chrome.runtime.lastError.message);
+            } else {
+                console.log('Context menu item created');
+            }
         });
     }
 });
