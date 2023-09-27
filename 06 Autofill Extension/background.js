@@ -4,7 +4,8 @@ var userInfo = {
     lastName: 'Doe',
     address: '123 Main St',
     phone: '123-456-7890',
-    email: 'john.doe@example.com'
+    email: 'john.doe@example.com',
+    greeting: 'With warm regards, Antti Perälä, Media & Arts'
 };
 
 // Store user info in chrome.storage.local
