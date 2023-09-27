@@ -30,18 +30,25 @@ chrome.contextMenus.removeAll(() => {
 
 // Listen for context menu item click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
+    console.log('Context menu item clicked', info.menuItemId);  // Debugging line
     chrome.storage.local.get(['userInfo'], (result) => {
         const value = result.userInfo[info.menuItemId];
+        console.log('Retrieved value from storage:', value);  // Debugging line
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             function: fillInput,
             args: [value]
+        }, () => {
+            if (chrome.runtime.lastError) {
+                console.error('Error executing script:', chrome.runtime.lastError.message);  // Debugging line
+            }
         });
     });
 });
 
 // Fill the right-clicked input field with the selected value
 function fillInput(value) {
+    console.log('fillInput executed with value:', value);  // Debugging line
     document.activeElement.value = value;
 }
 
