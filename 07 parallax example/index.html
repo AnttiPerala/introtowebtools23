@@ -70,6 +70,14 @@
 
         const layers = document.querySelectorAll('.layer'); //select all elements from page with class "layer"
 
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            //call a function that will update the positions of the images
+            setPosition(mouseX, mouseY);
+        });
+
     </script>
 </body>
 </html>
