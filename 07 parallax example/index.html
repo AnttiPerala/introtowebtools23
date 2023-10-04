@@ -9,7 +9,7 @@
         body, html {
             height: 100%;
             margin: 0;
-            background-color: cornflowerblue;
+            background-color: rgb(24, 29, 38);
         }
 
         .scene{
@@ -25,6 +25,7 @@
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
+            filter: brightness(250%);
         }
 
         #piece07{
@@ -52,7 +53,7 @@
         }
 
         #piece01{
-            background: url('01_foreground.png') no-repeat center center;
+            background: url('01_foreground.png') center center;
         }
     </style>
 </head>
@@ -62,9 +63,9 @@
         <div class="layer" id="piece06" data-depth="25"></div>
         <div class="layer" id="piece05" data-depth="50"></div>
         <div class="layer" id="piece04" data-depth="75"></div>
-        <div class="layer" id="piece03" data-depth="120"></div>
+        <div class="layer" id="piece03" data-depth="100"></div>
         <div class="layer" id="piece02" data-depth="130"></div>
-        <div class="layer" id="piece01" data-depth="140"></div>
+        <div class="layer" id="piece01" data-depth="160"></div>
     </div>
 
     <script>
@@ -96,8 +97,8 @@
             layers.forEach((layer) => {
                 const depth = layer.getAttribute('data-depth');
 
-                const moveX = offsetX * depth / 100;
-                const moveY = offsetY * depth / 100;
+                const moveX = offsetX * depth / 1500;
+                const moveY = offsetY * depth / 1500;
 
                 console.log('moveX: ' + moveX);
                 console.log('moveY: ' + moveY);
