@@ -78,7 +78,7 @@
         setPosition(centerX, centerY);
 
         document.addEventListener('mousemove', (event) => {
-            console.log('the mouse is moving');
+            //console.log('the mouse is moving');
             const mouseX = event.clientX;
             const mouseY = event.clientY;
 
@@ -100,8 +100,8 @@
                 const moveX = offsetX * depth / 1500;
                 const moveY = offsetY * depth / 1500;
 
-                console.log('moveX: ' + moveX);
-                console.log('moveY: ' + moveY);
+                //console.log('moveX: ' + moveX);
+                //console.log('moveY: ' + moveY);
 
                 layer.style.transform = `translate(${moveX}px, ${moveY}px) translateZ(${depth}px)`; 
             })
