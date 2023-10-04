@@ -28,31 +28,31 @@
         }
 
         #piece07{
-            background: url('07_cloud.png');
+            background: url('07_cloud.png') no-repeat center center;
         }
 
         #piece06{
-            background: url('06_bg_hill.png');
+            background: url('06_bg_hill.png') no-repeat center center;
         }
 
         #piece05{
-            background: url('05_hill.png');
+            background: url('05_hill.png') no-repeat center center;
         }
 
         #piece04{
-            background: url('04_background_trees.png');
+            background: url('04_background_trees.png') no-repeat center center;
         }
 
         #piece03{
-            background: url('03_deer.png');
+            background: url('03_deer.png') no-repeat center center;
         }
 
         #piece02{
-            background: url('02_foreground_trees.png');
+            background: url('02_foreground_trees.png') no-repeat center center;
         }
 
         #piece01{
-            background: url('01_foreground.png');
+            background: url('01_foreground.png') no-repeat center center;
         }
     </style>
 </head>
@@ -71,6 +71,11 @@
 
         const layers = document.querySelectorAll('.layer'); //select all elements from page with class "layer"
 
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        setPosition(centerX, centerY);
+
         document.addEventListener('mousemove', (event) => {
             console.log('the mouse is moving');
             const mouseX = event.clientX;
@@ -82,18 +87,22 @@
 
         function setPosition(mX, mY){
 
+            const offsetX = (mX - centerX);
+            const offsetY = (mY - centerY);
+
+
            
 
             layers.forEach((layer) => {
                 const depth = layer.getAttribute('data-depth');
 
-                const moveX = mX * depth /1000;
-                const moveY = mY * depth /1000;
+                const moveX = offsetX * depth / 100;
+                const moveY = offsetY * depth / 100;
 
                 console.log('moveX: ' + moveX);
                 console.log('moveY: ' + moveY);
 
-                layer.style.transform = `translate(${moveX}px, ${moveY}px)`; 
+                layer.style.transform = `translate(${moveX}px, ${moveY}px) translateZ(${depth}px)`; 
             })
 
         }
