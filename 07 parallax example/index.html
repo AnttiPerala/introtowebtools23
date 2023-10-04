@@ -24,6 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            transform-style: preserve-3d;
         }
 
         #piece07{
@@ -61,7 +62,7 @@
         <div class="layer" id="piece06" data-depth="25"></div>
         <div class="layer" id="piece05" data-depth="50"></div>
         <div class="layer" id="piece04" data-depth="75"></div>
-        <div class="layer" id="piece03" data-depth="20"></div>
+        <div class="layer" id="piece03" data-depth="120"></div>
         <div class="layer" id="piece02" data-depth="130"></div>
         <div class="layer" id="piece01" data-depth="140"></div>
     </div>
@@ -71,6 +72,7 @@
         const layers = document.querySelectorAll('.layer'); //select all elements from page with class "layer"
 
         document.addEventListener('mousemove', (event) => {
+            console.log('the mouse is moving');
             const mouseX = event.clientX;
             const mouseY = event.clientY;
 
@@ -80,8 +82,18 @@
 
         function setPosition(mX, mY){
 
+           
+
             layers.forEach((layer) => {
                 const depth = layer.getAttribute('data-depth');
+
+                const moveX = mX * depth /1000;
+                const moveY = mY * depth /1000;
+
+                console.log('moveX: ' + moveX);
+                console.log('moveY: ' + moveY);
+
+                layer.style.transform = `translate(${moveX}px, ${moveY}px)`; 
             })
 
         }
