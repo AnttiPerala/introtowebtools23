@@ -9,5 +9,7 @@ header, footer {
 
 main {
     background-color: deepskyblue;
+    background-image: url(technology-8280863_1920.jpg);
     min-height: 80vh;
+    background-size: cover;
 }
