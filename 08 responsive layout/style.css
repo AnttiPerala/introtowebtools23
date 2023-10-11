@@ -19,6 +19,9 @@ ul {
     display: flex;
 }
 
+li {
+    margin: 0 1rem;
+}
 
 main {
     background-color: deepskyblue;
@@ -31,3 +34,12 @@ main {
     font-family: 'Quicksand-variable';
     src: url(fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
 }
+
+/* Mobile styles */
+
+@media (max-width: 565px){
+    header, ul {
+        display: block;
+    }
+}
+
