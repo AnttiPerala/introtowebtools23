@@ -1,15 +1,33 @@
 html, body {
     margin: 0;
+    font-family: 'Quicksand-variable';
 }
 
 header, footer {
     min-height: 10vh;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
 
 main {
     background-color: deepskyblue;
-    background-image: url(technology-8280863_1920.jpg);
+    background-image: url(img/technology-8280863_1920.jpg);
     min-height: 80vh;
     background-size: cover;
+}
+
+@font-face {
+    font-family: 'Quicksand-variable';
+    src: url(fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
 }
