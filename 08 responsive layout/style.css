@@ -1,0 +1,13 @@
+html, body {
+    margin: 0;
+}
+
+header, footer {
+    min-height: 10vh;
+}
+
+
+main {
+    background-color: deepskyblue;
+    min-height: 80vh;
+}
