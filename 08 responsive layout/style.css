@@ -17,6 +17,8 @@ header {
 ul {
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 li {
@@ -30,6 +32,12 @@ main {
     background-size: cover;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @font-face {
     font-family: 'Quicksand-variable';
     src: url(fonts/Quicksand-VariableFont_wght.ttf) format('truetype');
@@ -39,7 +47,9 @@ main {
 
 @media (max-width: 565px){
     header, ul {
-        display: block;
-    }
+            display: block;
+            text-align: center;
+            margin: 1rem;
+        }
 }
 
